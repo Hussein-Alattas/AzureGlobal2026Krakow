@@ -21,7 +21,7 @@ terraform {
 
 module "keyvault" {
   source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=keyvault/v1.0.0"
-  keyvault_name = "gakvuser182026"
+  keyvault_name = "gakvuser1820"
   resource_group = {
     location = "polandcentral"
     name     = "RG-00"
