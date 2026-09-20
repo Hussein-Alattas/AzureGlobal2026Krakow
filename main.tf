@@ -41,6 +41,6 @@ module "mssql_server" {
     location = var.location
   }
   sql_server_admin = "sql-admin"
-  sql_server_name = "mYSQL"
+  sql_server_name = "mysqlwebserwer"
   sql_server_version = "12.0"
 }
