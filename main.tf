@@ -44,3 +44,16 @@ module "mssql_server" {
   sql_server_name = "mysqlwebserwer"
   sql_server_version = "12.0"
 }
+
+
+module "application_insights" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=application_insights/v1.0.0"
+  # also any inputs for the module (see below)
+  application_insights_name = "myappinsights"
+  log_analytics_name = "logobserving"
+  resource_group = {
+    name = var.resource_group
+    location = var.location
+  }
+
+}
