@@ -40,10 +40,7 @@ module "mssql_server" {
     name = var.resource_group
     location = var.location
   }
-
   sql_server_admin = "sql-admin"
   sql_server_name = "sql-server-name"
   sql_server_version = "12"
-
-
 }
