@@ -22,12 +22,22 @@ terraform {
 module "keyvault" {
   source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=keyvault/v1.0.0"
   keyvault_name = "gakvuser1820"
-  resource_group = {
-    location = "polandcentral"
-    name     = "RG-00"
-  }
+  resource_group = var.resource_group
   network_acls = {
     bypass = "AzureServices"
   }
+
+}
+
+
+module "mssql_server" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=mssql_server/v1.0.0"
+  # also any inputs for the module (see below)
+  resource_group = var.resource_group
+  location = var.location
+  sql_server_admin = "sql-admin"
+  sql_server_name = "sql-server-name"
+  sql_server_version = "12"
+
 
 }
