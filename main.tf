@@ -42,5 +42,5 @@ module "mssql_server" {
   }
   sql_server_admin = "sql-admin"
   sql_server_name = "sql-server-name"
-  sql_server_version = "12"
+  sql_server_version = "12.0"
 }
