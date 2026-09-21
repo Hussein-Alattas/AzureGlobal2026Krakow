@@ -89,7 +89,9 @@ module "service_plan" {
     location = var.location
   }
   sku_name = "sku-name"
-  tags ="observeit"
+  tags = { project = "observeit"
+  
+  }
 
 
 
