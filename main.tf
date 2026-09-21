@@ -92,6 +92,27 @@ module "service_plan" {
   tags = { project = "observeit"
   
   }
+}
+
+
+module "app_service" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=app_service/v1.0.0"
+  # also any inputs for the module (see below)
+  app_service_name = "appserfor123project"
+  app_service_plan_id = module.service_plan.app_service_plan.id
+  app_settings = {
+    "ApplicationInsights__ConnectionString" = module.application_insights.connection_string
+    "WEBSITES_PORT" = "8080"
+  }  
+  identity_client_id = "1bb3741b-a52c-43c1-baa3-593c43d8cc9e"
+  identity_id	= "889ba918-2183-48bb-b6b8-2d449453a00e"
+ resource_group = {
+    name = var.resource_group
+    location = var.location
+  }
+
+
+
 
 
 
