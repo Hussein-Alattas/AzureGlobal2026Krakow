@@ -43,6 +43,14 @@ module "mssql_server" {
   sql_server_admin = "sql-admin"
   sql_server_name = "mysqlwebserwer"
   sql_server_version = "12.0"
+  databases = [{
+    name                 = "moviesdb"
+    size                 = "2"
+    sku                  = "Basic"
+    storage_account_type = "Local"
+    collation            = "SQL_Latin1_General_CP1_CI_AS"
+  }]
+  
 }
 
 
@@ -103,6 +111,14 @@ module "app_service" {
   app_settings = {
     "ApplicationInsights__ConnectionString" = module.application_insights.connection_string
     "WEBSITES_PORT" = "8080"
+    "ConnectionStrings__RazorPagesMovieContext" = join("", [
+      "Server=tcp:${module.mssql_server.server.fully_qualified_domain_name},1433;",
+      "Initial Catalog=moviesdb;",
+      "User ID=${module.mssql_server.server.administrator_login};",
+      "Password=${module.mssql_server.server.administrator_login_password};",
+      "Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+    ])
+
   }  
   identity_client_id = module.managed_identity.managed_identity_client_id
   identity_id	= module.managed_identity.managed_identity_id
@@ -110,6 +126,8 @@ module "app_service" {
     name = var.resource_group
     location = var.location
   }
+
+  
 
 
 
