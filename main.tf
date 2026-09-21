@@ -104,9 +104,9 @@ module "app_service" {
     "ApplicationInsights__ConnectionString" = module.application_insights.connection_string
     "WEBSITES_PORT" = "8080"
   }  
-  identity_client_id = "1bb3741b-a52c-43c1-baa3-593c43d8cc9e"
-  identity_id	= "889ba918-2183-48bb-b6b8-2d449453a00e"
- resource_group = {
+  identity_client_id = module.managed_identity.managed_identity_client_id
+  identity_id	= module.managed_identity.managed_identity_id
+  resource_group = {
     name = var.resource_group
     location = var.location
   }
