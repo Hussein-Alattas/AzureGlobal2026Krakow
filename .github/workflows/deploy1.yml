@@ -95,6 +95,6 @@ jobs:
         run: |
           az webapp config container set \
             --name example-webapp-123123i95u8fhwfdsewdwsa \
-            --resource-group example-resources \
+            --resource-group RG-00 \
             --docker-custom-image-name ${{ secrets.ACR_LOGIN_SERVER }}/example-webapp:latest \
             --docker-registry-server-url https://${{ secrets.ACR_LOGIN_SERVER }}
