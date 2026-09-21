@@ -57,3 +57,25 @@ module "application_insights" {
   }
 
 }
+
+
+module "managed_identity" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=managed_identity/v1.0.0"
+  # also any inputs for the module (see below)
+
+
+
+  name = "puller-managed-id"
+  resource_group = {
+    name = var.resource_group
+    location = var.location
+  }
+
+  permissions = [
+    {
+        scope = "/subscriptions/42b7037a-ede2-42d4-9166-a946b69473cb/resourceGroups/RG-00/providers/Microsoft.ContainerRegistry/registries/azurecontainerreistery"
+        role_name = "ArcPull"
+    }
+ ]
+
+}
