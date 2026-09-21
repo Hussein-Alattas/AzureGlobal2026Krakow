@@ -88,7 +88,7 @@ module "service_plan" {
     name = var.resource_group
     location = var.location
   }
-  sku_name = "sku-name"
+  sku_name = "B1"
   tags = { project = "observeit"
   
   }
