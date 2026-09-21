@@ -74,7 +74,7 @@ module "managed_identity" {
   permissions = [
     {
         scope = "/subscriptions/42b7037a-ede2-42d4-9166-a946b69473cb/resourceGroups/RG-00/providers/Microsoft.ContainerRegistry/registries/azurecontainerreistery"
-        role_name = "ArcPull"
+        role_name = "AcrPull"
     }
  ]
 
