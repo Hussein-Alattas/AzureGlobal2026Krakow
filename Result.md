@@ -8,7 +8,10 @@ I built a passwordless CI/CD pipeline that deploys a containerised web app and i
 
 GitHub Actions signs in to Azure as a managed identity over OIDC. It then pushes the image to ACR, applies Terraform and updates the App Service. The running app uses Key Vault, SQL and Application Insights.
 
-![.NET Core application on Azure: App Service Plan, App Service, Container Registry, Storage Account, Key Vault, Azure SQL and Application Insights](azure-architecture.png)
+![.NET Core application on Azure: App Service Plan, App Service, Container Registry, Storage Account, Key Vault, Azure SQL and Application Insights]
+
+
+<img width="1800" height="1400" alt="image" src="https://github.com/user-attachments/assets/574c12a5-a43e-4554-a7a8-4ca1f08253ec" />
 
 ## Work completed
 
