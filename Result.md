@@ -1,4 +1,4 @@
-# Azure CI/CD project report: passwordless GitHub Actions to Azure
+# Azure CI/CD project Report:
 
 ## Project summary
 
