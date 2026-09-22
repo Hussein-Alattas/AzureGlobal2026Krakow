@@ -1,7 +1,5 @@
 # Azure CI/CD project report: passwordless GitHub Actions to Azure
 
-September 2026
-
 ## Project summary
 
 I built a passwordless CI/CD pipeline that deploys a containerised web app and its infrastructure to Azure on every push to `main`. It uses GitHub Actions, Terraform modules with remote state, Docker, and OIDC federation with a managed identity. I built it at the Global Azure 2026 Kraków workshop (April 2026). Repository: [Hussein-Alattas/AzureGlobal2026Krakow](https://github.com/Hussein-Alattas/AzureGlobal2026Krakow)
